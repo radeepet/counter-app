@@ -12,11 +12,11 @@ useEffect(() => {
 },[]);
 
 const user = useSelector((state)=>state.user.user);
-console.log('user', user)
   const count = useSelector((state)=>state.counter.count);
   const empName = ["Test1", "Test2"];
   return (
     <div className="App">
+      {user && <h1>Hello , {user.firstName} {user.lastName} ...</h1>}
       <h1>Hello Counter</h1>
       <h2>Count value : {count} </h2>
       {empName.map(emp => (
