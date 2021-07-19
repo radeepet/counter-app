@@ -1,8 +1,18 @@
 import './App.css';
 import Counter from './Counter'
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from 'react';
+import { getUser } from './redux/action/user';
 
 function App() {
+const dispatch = useDispatch();
+
+useEffect(() => {
+  dispatch(getUser());
+},[]);
+
+const user = useSelector((state)=>state.user.user);
+console.log('user', user)
   const count = useSelector((state)=>state.counter.count);
   const empName = ["Test1", "Test2"];
   return (
